@@ -13,17 +13,17 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
 
-        var traineeDemo = new BasicDemo();
-        traineeDemo.demonstrateMapWithFluxOfStrings();
-        traineeDemo.demonstrateFlatMapWithSingleValueFlux();
-        traineeDemo.demonstrateFlatMapWithMultipleFluxes();
+//        var traineeDemo = new BasicDemo();
+//        traineeDemo.demonstrateMapWithFluxOfStrings();
+//        traineeDemo.demonstrateFlatMapWithSingleValueFlux();
+//        traineeDemo.demonstrateFlatMapWithMultipleFluxes();
 
         var juniorDemo = new GreetingDemo();
         var sayHello = juniorDemo.sayHello();
         ReactiveUtil.subscribe(sayHello, "sayHello");
 
-        var seniorDemo = new WebClientDemo();
-        var resource = seniorDemo.getResource();
-        ReactiveUtil.subscribe(resource, "getResource");
+//        var seniorDemo = new WebClientDemo();
+//        var resource = seniorDemo.getResource();
+//        ReactiveUtil.subscribe(resource, "getResource");
     }
 }

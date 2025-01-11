@@ -17,6 +17,9 @@ public class GreetingDemo implements Serializable {
         ResourceLoader resourceLoader = new DefaultResourceLoader();
         Resource resource = resourceLoader.getResource("people.txt");
         String people = resource.getContentAsString(StandardCharsets.UTF_8);
-        return null;
+        String[] names = people.split("\n");
+        return Flux.fromArray(names)
+                .map(name -> "Hola " + name + ", ¿Cómo estás?");
+
     }
 }
