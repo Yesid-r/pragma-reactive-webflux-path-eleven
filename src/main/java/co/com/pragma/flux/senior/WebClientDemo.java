@@ -15,6 +15,10 @@ public class WebClientDemo implements Serializable {
 
     public Mono<String> getResource() {
         Function<ClientResponse, Mono<? extends Throwable>> errorHandler = response -> Mono.error(new RuntimeException(ERROR_MESSAGE));
-        return null;
+        return  webClient.get()
+                .uri("/api/resource")
+                .retrieve()
+                .onStatus(HttpStatusCode::is4xxClientError, errorHandler)
+                .bodyToMono(String.class);
     }
 }
